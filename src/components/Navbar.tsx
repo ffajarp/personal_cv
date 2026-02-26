@@ -59,12 +59,7 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contact" 
-            className="ml-4 px-5 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-slate-200"
-          >
-            Hire Me
-          </a>
+      
         </div>
 
         {/* Mobile Toggle Button */}

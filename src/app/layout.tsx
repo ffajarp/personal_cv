@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "Fajar Permana | CV",
