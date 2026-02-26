@@ -89,7 +89,7 @@ const Contact = () => {
               <span className="text-gray-500">orang telah mengunjungi profil ini</span>
             </div>
             <p className="text-[10px] text-gray-300 uppercase tracking-widest mt-2">
-              Terima kasih atas kunjungannya
+              Terima kasih atas kunjungannyaa
             </p>
           </div>
         </div>
