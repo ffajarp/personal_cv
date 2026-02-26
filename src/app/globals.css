@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Opsional: Beri offset agar header tidak menutupi judul section saat scroll */
+section {
+  scroll-margin-top: 80px; 
+}
