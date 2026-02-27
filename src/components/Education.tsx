@@ -172,13 +172,6 @@ export default function EducationCert() {
                       <span className="max-w-[150px] truncate">ID: {cert.id}</span>
                       <span>{cert.year}</span>
                     </div>
-                    <button 
-                      type="button"
-                      onClick={() => setSelectedImg(cert.image)}
-                      className="w-full py-3 bg-slate-50 group-hover:bg-blue-600 group-hover:text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-                    >
-                      View Document <ExternalLink size={14} />
-                    </button>
                   </div>
                 </div>
               </div>
