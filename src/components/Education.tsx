@@ -23,6 +23,14 @@ const educationList = [
 
 const certifications = [
   {
+    title: "Marketing Fundamentals From Strategic to Impact",
+    issuer: "V-Academy",
+    year: "2025",
+    id: "248/Sert/PPSIP/XII/2025",
+    image: "/mark.jpg",
+    description: "Pelatihan marketing fundamental."
+  },
+  {
     title: "Project Management Associate",
     issuer: "Logical Operations",
     year: "2023",
