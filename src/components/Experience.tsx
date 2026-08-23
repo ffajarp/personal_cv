@@ -40,15 +40,15 @@ const experiences = [
     products: ["Sistem Pajak PBB", "Sistem Pajak BPHTB", "Sistem Pajak Daerah"],
     achievements: [
       { 
-        text: "Provide application training to company partners virtually and face-to-face to ensure functional mastery before the system goes live[cite: 15].", 
+        text: "Provide application training to company partners virtually and face-to-face to ensure functional mastery before the system goes live.", 
         icon: <CheckCircle2 size={16} className="text-blue-500" /> 
       },
       { 
-        text: "Perform system analysis and prepare conceptual models of functional requirements related to applications and payments as per partner development requests[cite: 15].", 
+        text: "Perform system analysis and prepare conceptual models of functional requirements related to applications and payments as per partner development requests.", 
         icon: <ShieldCheck size={16} className="text-purple-500" /> 
       },
       { 
-        text: "Handle regional tax system issues, including root cause analysis, managing partner complaints, and providing sustainable solutions[cite: 15].", 
+        text: "Handle regional tax system issues, including root cause analysis, managing partner complaints, and providing sustainable solutions.", 
         icon: <Database size={16} className="text-blue-500" /> 
       },
       { 
@@ -67,7 +67,7 @@ const experiences = [
     products: ["Hospital Information System"],
     achievements: [
       { 
-        text: "Develop websites according to client needs, starting from analysis, testing, and documentation to result presentation to ensure all functionalities are met[cite: 19].", 
+        text: "Develop websites according to client needs, starting from analysis, testing, and documentation to result presentation to ensure all functionalities are met.", 
         icon: <Code size={16} className="text-blue-500" /> 
       }
     ],

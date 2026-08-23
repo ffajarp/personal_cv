@@ -73,25 +73,15 @@ const Contact = () => {
           </p>
           
           <div className="flex justify-center gap-4 mb-10">
-            <a href="#" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+            <a href="https://www.linkedin.com/in/ffajarp/" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href="#" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white hover:bg-pink-600 transition-colors">
+            <a href="https://www.instagram.com/ffajarpp_" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white hover:bg-pink-600 transition-colors">
               <Instagram size={20} />
             </a>
           </div>
 
-          {/* Visitor Counter Area */}
-          <div className="flex flex-col items-center justify-center gap-2">
-            <div className="flex items-center gap-3 text-gray-900 font-medium">
-              <Eye size={20} className="text-gray-400" />
-              <span className="text-xl font-bold">{visitorCount !== null ? visitorCount : '20'}</span>
-              <span className="text-gray-500">orang telah mengunjungi profil ini</span>
-            </div>
-            <p className="text-[10px] text-gray-300 uppercase tracking-widest mt-2">
-              Terima kasih atas kunjungannyaa
-            </p>
-          </div>
+          
         </div>
       </div>
     </section>

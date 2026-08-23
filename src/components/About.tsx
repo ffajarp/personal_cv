@@ -72,13 +72,27 @@ export default function About() {
               <div className="grid grid-cols-2 gap-4 w-full">
                 <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition-colors group">
                   <Database className="text-blue-500 mb-2 group-hover:scale-110 transition-transform" size={20} />
-                  <p className="text-2xl font-bold text-slate-800">5+</p>
+                  <p className="text-2xl font-bold text-slate-800">7+</p>
                   <p className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Years Exp</p>
+                  <p className="text-[8px] text-slate-400 mt-1 leading-tight">Application Support</p>
                 </div>
                 <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 hover:border-purple-200 transition-colors group">
                   <Globe className="text-purple-500 mb-2 group-hover:scale-110 transition-transform" size={20} />
                   <p className="text-2xl font-bold text-slate-800">{count}+</p>
                   <p className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Municipalities</p>
+                  <p className="text-[8px] text-slate-400 mt-1 leading-tight">Government & Bank Partners</p>
+                </div>
+                <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 hover:border-emerald-200 transition-colors group">
+                  <LayoutDashboard className="text-emerald-500 mb-2 group-hover:scale-110 transition-transform" size={20} />
+                  <p className="text-2xl font-bold text-slate-800">3</p>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Triple Roles</p>
+                  <p className="text-[8px] text-slate-400 mt-1 leading-tight">Helpdesk • Analyst • Tester</p>
+                </div>
+                <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 hover:border-amber-200 transition-colors group">
+                  <CheckCircle2 className="text-amber-500 mb-2 group-hover:scale-110 transition-transform" size={20} />
+                  <p className="text-2xl font-bold text-slate-800">14</p>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Products</p>
+                  <p className="text-[8px] text-slate-400 mt-1 leading-tight">Managed Simultaneously</p>
                 </div>
               </div>
             </div>
@@ -101,22 +115,28 @@ export default function About() {
     
     {/* Premium Headline - Ukuran dikecilkan (text-3xl ke 5xl) */}
     <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-5">
-      IT Support Engineer <br />
+      Application Support <br />
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-        & System Analyst
+        Specialist
       </span>
     </h2>
 
     {/* Professional Narrative - Ukuran font dikecilkan ke text-base */}
     <div className="space-y-3 text-slate-600 text-base leading-relaxed max-w-xl">
       <p>
-        IT Support Engineer and System Analyst with over <span className="text-slate-900 font-bold">4 years of experience</span> specializing in database technology and transactional analysis. 
+        Application Support Specialist with <span className="text-slate-900 font-bold">7+ years</span> of proven expertise in <span className="text-slate-900 font-semibold">database management</span>, <span className="text-slate-900 font-semibold">payment gateway integration</span>, and <span className="text-slate-900 font-semibold">transactional system analysis</span> across government and banking sectors.
       </p>
       <p>
-        Dedicated to maintaining system integrity through a structured and results-oriented approach. 
-        I played a key role in the company’s scalability, supporting the expansion of government partnerships from 
-        <span className="mx-1 font-bold text-blue-600">8 to over 60 municipalities</span> 
-        across Indonesia.
+        Successfully supported the scalability of payment systems serving <span className="text-blue-600 font-bold">60+ municipalities</span> across Indonesia, managing high-volume transaction data, conducting SIT/UAT testing, and ensuring seamless H2H integration with major banking partners and e-commerce platforms.
+      </p>
+      <p>
+        <span className="text-slate-900 font-bold">Triple-role capability:</span> Operating simultaneously as <span className="text-slate-900 font-semibold">(1) Helpdesk</span> providing first-response solutions to regional government partners nationwide, <span className="text-slate-900 font-semibold">(2) System Analyst</span> creating flowcharts, UML diagrams, database schemas, and impact analysis for feature requests, and <span className="text-slate-900 font-semibold">(3) Software Tester</span> performing end-to-end testing independently through ticketing system documentation.
+      </p>
+      <p> 
+        Experienced in delivering <span className="text-slate-900 font-semibold">technical training sessions</span> (both offline and online) to regional tax office partners, ensuring smooth system adoption and operational excellence across government institutions.
+      </p>
+      <p>
+        Beyond technical proficiency, I bring strong capabilities in business analysis, stakeholder management, and comprehensive project delivery, with additional skills in graphic design and digital marketing.
       </p>
     </div>
   </motion.div>
