@@ -21,11 +21,25 @@ export default function Navbar() {
     { name: "About", href: "#About" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
-    // { name: "Portfolio", href: "#portfolio" },
+    { name: "Portfolio", href: "#portfolio" },
     { name: "Education", href: "#education" },
     { name: "Certificates", href: "#certificates" },
     { name: "Contact", href: "#contact" },
   ]
+
+  // Handle smooth scroll for mobile
+  const handleMobileClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setIsOpen(false)
+    
+    // Wait for menu to close, then scroll
+    setTimeout(() => {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 300)
+  }
 
   return (
     <nav 
@@ -66,7 +80,10 @@ export default function Navbar() {
 
         {/* Mobile Toggle Button */}
         <button 
-          className={`md:hidden p-2 rounded-lg ${scrolled ? "text-slate-900" : "text-slate-800"}`}
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          className={`md:hidden p-2 rounded-lg transition-colors z-50 ${scrolled ? "text-slate-900 hover:bg-slate-100" : "text-slate-800 hover:bg-white/10"}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,15 +97,16 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-white border-b border-slate-100 overflow-hidden shadow-lg"
           >
             <div className="flex flex-col px-6 py-6 gap-4">
               {navLinks.map((link) => (
                 <a 
                   key={link.name}
-                  href={link.href} 
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-slate-600 hover:text-blue-600 transition"
+                  href={link.href}
+                  onClick={(e) => handleMobileClick(e, link.href)}
+                  className="text-lg font-medium text-slate-600 hover:text-blue-600 transition-colors active:text-blue-700 py-2"
                 >
                   {link.name}
                 </a>

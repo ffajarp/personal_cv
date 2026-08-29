@@ -27,379 +27,379 @@ type PortfolioItem = {
 const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
-    title: "User Guide Module Collective Payment",
+    title: "BRD Sistem Manajemen Garment",
     category: "Documentation",
-    description: "Complete technical documentation for QRIS and Virtual Account integration with multiple banking partners.",
-    date: "Apr 2025",
-    client: "BAPENDA KABUPATEN MAJALENGKA",
+    description: "Dokumentasi requirement pembuatan sebuah website pengelolaan bisnis garment",
+    date: "Maret 2026",
+    client: "INTERNAL",
     previewType: "pdf",
     previewData: {
-      pdfUrl: "/porto/kolektifguide.pdf",
+      pdfUrl: "/porto/brd.pdf",
       thumbnail: "/porto/payment-gateway-cover.jpg"
     },
     tools: ["MS Word, Canva"]
   },
-  { 
-    id: 2,
-    title: "Sharing Session Reconciliation Online For BAPENDA Role ",
-    category: "Training Session",
-    description: "Comprehensive training presentation on online reconciliation system operations for regional tax revenue management. Covers end-to-end reconciliation workflows, discrepancy handling procedures, and real-time transaction monitoring for BAPENDA officers.",
-    date: "Mar 2022",
-    client: "BAPENDA ROLE RECONCILIATION",
-    previewType: "pdf",
-    previewData: {
-      pdfUrl: "/porto/guider_rekon.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
-    },
-    tools: ["Canva"]
-  },
-  { 
-    id: 3,
-    title: "Webservice API Documentation Specification",
-    category: "Documentation",
-    description: "Technical API documentation covering webservice endpoints for tax payment integration, including endpoint specifications, parameter definitions, JSON payload structures, authentication tokens, status codes, and sample API calls for third-party integration.",
-    date: "jun 2025",
-    client: "BAPENDA",
-    previewType: "pdf",
-    previewData: {
-      pdfUrl: "/porto/webserviceapi.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
-    },
-    tools: ["Ms Word, Postman"]
-  },
-  { 
-    id: 4,
-    title: "Testing Report API Tax Opsen Bank NTT",
-    category: "Documentation",
-    description: "Comprehensive testing documentation for Bank NTT Tax Opsen API, covering endpoint response validation, settlement date configuration, payment transaction fields verification (opsen_collectible, pajda_denda, pajda_total_bayar), JSON schema compliance, and integration test results for provincial tax sharing system.",
-    date: "Sep 2025",
-    client: "BAPENDA & Bank NTT",
-    previewType: "pdf",
-    previewData: {
-      pdfUrl: "/porto/testingdoc.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
-    },
-    tools: ["Ms Word, Postman"]
-  },
-  { 
-    id: 5,
-    title: "User Guide Payment VA",
-    category: "Documentation",
-    description: "Comprehensive payment guide for regional tax collection using Virtual Account system, covering portal access procedures, VA number generation process, payment instructions across multiple banking channels, and transaction confirmation steps for taxpayers.",
-    date: "Agt 2024",
-    client: "BAPENDA & Bank SUMSELBABEL",
-    previewType: "pdf",
-    previewData: {
-      pdfUrl: "/porto/testingdoc.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
-    },
-    tools: ["Ms Word"]
-  },
-  {
-    id: 6,
-    title: "Database Payment Merchant PBB Tax",
-    category: "Database SQL",
-    description: "This query retrieves partner data and their associated payment merchant lists, grouped by region and tax type, to support business initiatives for expanding payment channels.",
-    date: "Feb 2025",
-    client: "Account Manager",
-    previewType: "code",
-    previewData: {
-      code: `
-      -- PBB INDIVIDUAL --
-        SELECT
-          A.CSM_TM_CID,
-          A.CSM_TM_CA,
-          'BANK NTT' AS MITRA_PEMBAYARAN,
-          A.CSM_TM_AREA_CODE,
-          ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = A.CSM_TM_AREA_CODE ),
-          'PBB-P2' AS PRODUK 
-        FROM
-          CSCMOD_TAX_TRAN_MAIN A 
-        WHERE
-          A.CSM_TM_TAX_TYPE = '0002' 
-        GROUP BY
-          A.CSM_TM_CID,
-          A.CSM_TM_CA,
-          A.CSM_TM_AREA_CODE 
-        ORDER BY
-          A.CSM_TM_AREA_CODE;
+//   { 
+//     id: 2,
+//     title: "Sharing Session Reconciliation Online For BAPENDA Role ",
+//     category: "Training Session",
+//     description: "Comprehensive training presentation on online reconciliation system operations for regional tax revenue management. Covers end-to-end reconciliation workflows, discrepancy handling procedures, and real-time transaction monitoring for BAPENDA officers.",
+//     date: "Mar 2022",
+//     client: "BAPENDA ROLE RECONCILIATION",
+//     previewType: "pdf",
+//     previewData: {
+//       pdfUrl: "/porto/guider_rekon.pdf",
+//       thumbnail: "/porto/payment-gateway-cover.jpg"
+//     },
+//     tools: ["Canva"]
+//   },
+//   { 
+//     id: 3,
+//     title: "Webservice API Documentation Specification",
+//     category: "Documentation",
+//     description: "Technical API documentation covering webservice endpoints for tax payment integration, including endpoint specifications, parameter definitions, JSON payload structures, authentication tokens, status codes, and sample API calls for third-party integration.",
+//     date: "jun 2025",
+//     client: "BAPENDA",
+//     previewType: "pdf",
+//     previewData: {
+//       pdfUrl: "/porto/webserviceapi.pdf",
+//       thumbnail: "/porto/payment-gateway-cover.jpg"
+//     },
+//     tools: ["Ms Word, Postman"]
+//   },
+//   { 
+//     id: 4,
+//     title: "Testing Report API Tax Opsen Bank NTT",
+//     category: "Documentation",
+//     description: "Comprehensive testing documentation for Bank NTT Tax Opsen API, covering endpoint response validation, settlement date configuration, payment transaction fields verification (opsen_collectible, pajda_denda, pajda_total_bayar), JSON schema compliance, and integration test results for provincial tax sharing system.",
+//     date: "Sep 2025",
+//     client: "BAPENDA & Bank NTT",
+//     previewType: "pdf",
+//     previewData: {
+//       pdfUrl: "/porto/testingdoc.pdf",
+//       thumbnail: "/porto/payment-gateway-cover.jpg"
+//     },
+//     tools: ["Ms Word, Postman"]
+//   },
+//   { 
+//     id: 5,
+//     title: "User Guide Payment VA",
+//     category: "Documentation",
+//     description: "Comprehensive payment guide for regional tax collection using Virtual Account system, covering portal access procedures, VA number generation process, payment instructions across multiple banking channels, and transaction confirmation steps for taxpayers.",
+//     date: "Agt 2024",
+//     client: "BAPENDA & Bank SUMSELBABEL",
+//     previewType: "pdf",
+//     previewData: {
+//       pdfUrl: "/porto/testingdoc.pdf",
+//       thumbnail: "/porto/payment-gateway-cover.jpg"
+//     },
+//     tools: ["Ms Word"]
+//   },
+//   {
+//     id: 6,
+//     title: "Database Payment Merchant PBB Tax",
+//     category: "Database SQL",
+//     description: "This query retrieves partner data and their associated payment merchant lists, grouped by region and tax type, to support business initiatives for expanding payment channels.",
+//     date: "Feb 2025",
+//     client: "Account Manager",
+//     previewType: "code",
+//     previewData: {
+//       code: `
+//       -- PBB INDIVIDUAL --
+//         SELECT
+//           A.CSM_TM_CID,
+//           A.CSM_TM_CA,
+//           'BANK NTT' AS MITRA_PEMBAYARAN,
+//           A.CSM_TM_AREA_CODE,
+//           ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = A.CSM_TM_AREA_CODE ),
+//           'PBB-P2' AS PRODUK 
+//         FROM
+//           CSCMOD_TAX_TRAN_MAIN A 
+//         WHERE
+//           A.CSM_TM_TAX_TYPE = '0002' 
+//         GROUP BY
+//           A.CSM_TM_CID,
+//           A.CSM_TM_CA,
+//           A.CSM_TM_AREA_CODE 
+//         ORDER BY
+//           A.CSM_TM_AREA_CODE;
           
-      -- PBB KOLEKTIF --
-        SELECT
-          A.CSM_TM_CID,
-          A.CSM_TM_CA,
-          'NTT KOLEKTIF' AS MITRA_PEMBAYARAN,
-          CONCAT('00',A.CSM_TM_INPUT_3),
-        ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = CONCAT('00',A.CSM_TM_INPUT_3) ),
-          'PBB-P2' AS PRODUK 
-        FROM
-          CSCMOD_GP_TRAN_MAIN A 
-        GROUP BY
-          A.CSM_TM_CID,
-          A.CSM_TM_CA,
-          A.CSM_TM_INPUT_3 
-        ORDER BY
-          A.CSM_TM_INPUT_3;`
-    },
-    tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
-  },
-  {
-    id: 7,
-    title: "Database Payment Merchant BPHTB Tax",
-    category: "Database SQL",
-    description: "This query retrieves partner data and their associated payment merchant lists, grouped by region and tax type, to support business initiatives for expanding payment channels.",
-    date: "Feb 2025",
-    client: "Account Manager",
-    previewType: "code",
-    previewData: {
-      code: `
-      SELECT
-        A.CSM_TM_CID,
-        A.CSM_TM_CA,	
-        'BANK NTT' AS MITRA_PEMBAYARAN,
-        A.CSM_TM_AREA_CODE,
-        ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = A.CSM_TM_AREA_CODE ),
-        'BPHTB' AS PRODUK 
-      FROM
-        CSCMOD_TAX_TRAN_MAIN A 
-      WHERE
-        A.CSM_TM_TAX_TYPE = '0001' 
-      GROUP BY
-        A.CSM_TM_CID,
-        A.CSM_TM_CA,
-        A.CSM_TM_AREA_CODE 
-      ORDER BY
-        A.CSM_TM_AREA_CODE;`
-    },
-    tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
-  },
-  {
-    id: 8,
-    title: "Database Payment Merchant PJDL Tax",
-    category: "Database SQL",
-    description: "This query retrieves partner data and their associated payment merchant lists, grouped by region and tax type, to support business initiatives for expanding payment channels.",
-    date: "Feb 2025",
-    client: "Account Manager",
-    previewType: "code",
-    previewData: {
-      code: `
-    SELECT
-      A.CSM_TM_CID,
-      A.CSM_TM_CA,
-      'BANK NTT' AS MITRA_PEMBAYARAN,
-      A.CSM_TM_AREA_CODE,
-      ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = A.CSM_TM_AREA_CODE ),
-      '9-PAJAK DAERAH' AS PRODUK 
-    FROM
-      CSCMOD_TAX_TRAN_MAIN A 
-    WHERE
-      A.CSM_TM_TAX_TYPE IN (
-        '0004',
-        '0005',
-        '0006',
-        '0007',
-        '0008',
-        '0009',
-        '0010',
-        '0011',
-        '0012',
-        '0024',
-        '0025',
-        '0026',
-        '0027',
-        '0028',
-        '0029',
-        '0030',
-        '0031',
-        '0032' 
-      ) 
-    GROUP BY
-      A.CSM_TM_CID,
-      A.CSM_TM_CA,
-      A.CSM_TM_AREA_CODE 
-    ORDER BY
-      A.CSM_TM_AREA_CODE;`
-    },
-    tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
-  },
-{
-    id: 9,
-    title: "Query Rekon Piutang",
-    category: "Database SQL",
-    description: "This query serves to resolve Bapenda's annual issue regarding receivable reconciliation.",
-    date: "nov 2025",
-    client: "BAPENDA",
-    previewType: "code",
-    previewData: {
-      code: `
-    1. BANDINGKAN SISMIOP ADA (PIUTANG) VS V-TAX TIDAK ADA(BUKAN PIUTANG)
-	SELECT
-		A.NOP,
-		A.THN_PAJAK_SPPT,
-		A.NM_WP_SPPT,
-		A.PBB_YG_HARUS_DIBAYAR_SPPT 
-	FROM
-		SALDO_PIUTANG_AWAL_2021_SISMIOP A
-		LEFT JOIN PBB_SPPT_SALDO_PIUTANG_AWAL_2021_VTAX B ON A.NOP = B.NOP 
-		AND A.THN_PAJAK_SPPT = B.SPPT_TAHUN_PAJAK 
-	WHERE
-		ISNULL( B.NOP ) 
-	ORDER BY
-		A.THN_PAJAK_SPPT,
-		A.NOP;
+//       -- PBB KOLEKTIF --
+//         SELECT
+//           A.CSM_TM_CID,
+//           A.CSM_TM_CA,
+//           'NTT KOLEKTIF' AS MITRA_PEMBAYARAN,
+//           CONCAT('00',A.CSM_TM_INPUT_3),
+//         ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = CONCAT('00',A.CSM_TM_INPUT_3) ),
+//           'PBB-P2' AS PRODUK 
+//         FROM
+//           CSCMOD_GP_TRAN_MAIN A 
+//         GROUP BY
+//           A.CSM_TM_CID,
+//           A.CSM_TM_CA,
+//           A.CSM_TM_INPUT_3 
+//         ORDER BY
+//           A.CSM_TM_INPUT_3;`
+//     },
+//     tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
+//   },
+//   {
+//     id: 7,
+//     title: "Database Payment Merchant BPHTB Tax",
+//     category: "Database SQL",
+//     description: "This query retrieves partner data and their associated payment merchant lists, grouped by region and tax type, to support business initiatives for expanding payment channels.",
+//     date: "Feb 2025",
+//     client: "Account Manager",
+//     previewType: "code",
+//     previewData: {
+//       code: `
+//       SELECT
+//         A.CSM_TM_CID,
+//         A.CSM_TM_CA,	
+//         'BANK NTT' AS MITRA_PEMBAYARAN,
+//         A.CSM_TM_AREA_CODE,
+//         ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = A.CSM_TM_AREA_CODE ),
+//         'BPHTB' AS PRODUK 
+//       FROM
+//         CSCMOD_TAX_TRAN_MAIN A 
+//       WHERE
+//         A.CSM_TM_TAX_TYPE = '0001' 
+//       GROUP BY
+//         A.CSM_TM_CID,
+//         A.CSM_TM_CA,
+//         A.CSM_TM_AREA_CODE 
+//       ORDER BY
+//         A.CSM_TM_AREA_CODE;`
+//     },
+//     tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
+//   },
+//   {
+//     id: 8,
+//     title: "Database Payment Merchant PJDL Tax",
+//     category: "Database SQL",
+//     description: "This query retrieves partner data and their associated payment merchant lists, grouped by region and tax type, to support business initiatives for expanding payment channels.",
+//     date: "Feb 2025",
+//     client: "Account Manager",
+//     previewType: "code",
+//     previewData: {
+//       code: `
+//     SELECT
+//       A.CSM_TM_CID,
+//       A.CSM_TM_CA,
+//       'BANK NTT' AS MITRA_PEMBAYARAN,
+//       A.CSM_TM_AREA_CODE,
+//       ( SELECT B.CSM_AREA_NAME FROM CSCMOD_TAX_AREA_LIST B WHERE B.CSM_AREA_CODE = A.CSM_TM_AREA_CODE ),
+//       '9-PAJAK DAERAH' AS PRODUK 
+//     FROM
+//       CSCMOD_TAX_TRAN_MAIN A 
+//     WHERE
+//       A.CSM_TM_TAX_TYPE IN (
+//         '0004',
+//         '0005',
+//         '0006',
+//         '0007',
+//         '0008',
+//         '0009',
+//         '0010',
+//         '0011',
+//         '0012',
+//         '0024',
+//         '0025',
+//         '0026',
+//         '0027',
+//         '0028',
+//         '0029',
+//         '0030',
+//         '0031',
+//         '0032' 
+//       ) 
+//     GROUP BY
+//       A.CSM_TM_CID,
+//       A.CSM_TM_CA,
+//       A.CSM_TM_AREA_CODE 
+//     ORDER BY
+//       A.CSM_TM_AREA_CODE;`
+//     },
+//     tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
+//   },
+// {
+//     id: 9,
+//     title: "Query Rekon Piutang",
+//     category: "Database SQL",
+//     description: "This query serves to resolve Bapenda's annual issue regarding receivable reconciliation.",
+//     date: "nov 2025",
+//     client: "BAPENDA",
+//     previewType: "code",
+//     previewData: {
+//       code: `
+//     1. BANDINGKAN SISMIOP ADA (PIUTANG) VS V-TAX TIDAK ADA(BUKAN PIUTANG)
+// 	SELECT
+// 		A.NOP,
+// 		A.THN_PAJAK_SPPT,
+// 		A.NM_WP_SPPT,
+// 		A.PBB_YG_HARUS_DIBAYAR_SPPT 
+// 	FROM
+// 		SALDO_PIUTANG_AWAL_2021_SISMIOP A
+// 		LEFT JOIN PBB_SPPT_SALDO_PIUTANG_AWAL_2021_VTAX B ON A.NOP = B.NOP 
+// 		AND A.THN_PAJAK_SPPT = B.SPPT_TAHUN_PAJAK 
+// 	WHERE
+// 		ISNULL( B.NOP ) 
+// 	ORDER BY
+// 		A.THN_PAJAK_SPPT,
+// 		A.NOP;
 
 
-2. EXPORT POINT 1 ( untuk dikirim ke dinas )
-	SELECT
-		A.NOP AS 'NOP',
-		A.THN_PAJAK_SPPT AS 'TAHUN PAJAK',
-		A.NM_WP_SPPT,
-		A.PBB_YG_HARUS_DIBAYAR_SPPT,
-		B.SPPT_PBB_HARUS_DIBAYAR,
-		B.PAYMENT_FLAG,
-		B.PAYMENT_PAID,
-	IF
-		(( B.PAYMENT_FLAG <> '1' OR ISNULL( B.PAYMENT_FLAG ) ), 'DATA TIDAK ADA', 'SUDAH LUNAS' ) AS STATUS 
-	FROM
-		SALDO_PIUTANG_AWAL_2021_SISMIOP_TIDAK_ADA A
-		LEFT JOIN GW_PBB.PBB_SPPT B ON A.NOP = B.NOP 
-		AND A.THN_PAJAK_SPPT = B.SPPT_TAHUN_PAJAK;
+// 2. EXPORT POINT 1 ( untuk dikirim ke dinas )
+// 	SELECT
+// 		A.NOP AS 'NOP',
+// 		A.THN_PAJAK_SPPT AS 'TAHUN PAJAK',
+// 		A.NM_WP_SPPT,
+// 		A.PBB_YG_HARUS_DIBAYAR_SPPT,
+// 		B.SPPT_PBB_HARUS_DIBAYAR,
+// 		B.PAYMENT_FLAG,
+// 		B.PAYMENT_PAID,
+// 	IF
+// 		(( B.PAYMENT_FLAG <> '1' OR ISNULL( B.PAYMENT_FLAG ) ), 'DATA TIDAK ADA', 'SUDAH LUNAS' ) AS STATUS 
+// 	FROM
+// 		SALDO_PIUTANG_AWAL_2021_SISMIOP_TIDAK_ADA A
+// 		LEFT JOIN GW_PBB.PBB_SPPT B ON A.NOP = B.NOP 
+// 		AND A.THN_PAJAK_SPPT = B.SPPT_TAHUN_PAJAK;
 
 
-3. BANDINGKAN V-TAX ADA (PIUTANG) VS SISMIOP TIDAK ADA (BUKAN PIUTANG)
-	SELECT
-		A.NOP,
-		A.SPPT_TAHUN_PAJAK,
-		A.WP_NAMA,
-		A.SPPT_PBB_HARUS_DIBAYAR 
-	FROM
-		PBB_SPPT_SALDO_PIUTANG_AWAL_2021_VTAX A
-		LEFT JOIN SALDO_PIUTANG_AWAL_2021_SISMIOP B ON A.NOP = B.NOP 
-		AND B.THN_PAJAK_SPPT = A.SPPT_TAHUN_PAJAK 
-	WHERE
-		ISNULL( B.NOP ) 
-	ORDER BY
-		A.SPPT_TAHUN_PAJAK,
-		A.NOP;
+// 3. BANDINGKAN V-TAX ADA (PIUTANG) VS SISMIOP TIDAK ADA (BUKAN PIUTANG)
+// 	SELECT
+// 		A.NOP,
+// 		A.SPPT_TAHUN_PAJAK,
+// 		A.WP_NAMA,
+// 		A.SPPT_PBB_HARUS_DIBAYAR 
+// 	FROM
+// 		PBB_SPPT_SALDO_PIUTANG_AWAL_2021_VTAX A
+// 		LEFT JOIN SALDO_PIUTANG_AWAL_2021_SISMIOP B ON A.NOP = B.NOP 
+// 		AND B.THN_PAJAK_SPPT = A.SPPT_TAHUN_PAJAK 
+// 	WHERE
+// 		ISNULL( B.NOP ) 
+// 	ORDER BY
+// 		A.SPPT_TAHUN_PAJAK,
+// 		A.NOP;
 
 
-4. EXPORT POINT 3 ( untuk dikirim ke dinas )
-	SELECT
-		A.NOP,
-		A.SPPT_TAHUN_PAJAK,
-		A.WP_NAMA,
-		A.SPPT_PBB_HARUS_DIBAYAR,
-		A.PAYMENT_FLAG,
-		A.PAYMENT_PAID,
-	IF
-		(( A.PAYMENT_FLAG <> '1' OR ISNULL( A.PAYMENT_FLAG ) ), 'BELUM LUNAS', 'SUDAH LUNAS' ) AS STATUS 
-	FROM
-		PBB_SPPT_SALDO_PIUTANG_AWAL_2021_VTAX_TIDAK_ADA A 
-	ORDER BY
-		A.SPPT_TAHUN_PAJAK,
-		A.NOP;
+// 4. EXPORT POINT 3 ( untuk dikirim ke dinas )
+// 	SELECT
+// 		A.NOP,
+// 		A.SPPT_TAHUN_PAJAK,
+// 		A.WP_NAMA,
+// 		A.SPPT_PBB_HARUS_DIBAYAR,
+// 		A.PAYMENT_FLAG,
+// 		A.PAYMENT_PAID,
+// 	IF
+// 		(( A.PAYMENT_FLAG <> '1' OR ISNULL( A.PAYMENT_FLAG ) ), 'BELUM LUNAS', 'SUDAH LUNAS' ) AS STATUS 
+// 	FROM
+// 		PBB_SPPT_SALDO_PIUTANG_AWAL_2021_VTAX_TIDAK_ADA A 
+// 	ORDER BY
+// 		A.SPPT_TAHUN_PAJAK,
+// 		A.NOP;
 		
 
-5. KETETAPAN SISMIOP VS V-TAX BERBEDA ( untuk dikirim ke dinas )
-	SELECT
-		A.NOP,
-		A.THN_PAJAK_SPPT,
-		A.NM_WP_SPPT,
-		A.PBB_YG_HARUS_DIBAYAR_SPPT,
-		B.SPPT_PBB_HARUS_DIBAYAR,
-		B.PAYMENT_FLAG,
-		B.PAYMENT_PAID 
-	FROM
-		SALDO_PIUTANG_AWAL_2021_SISMIOP A
-		JOIN GW_PBB.PBB_SPPT B ON A.NOP = B.NOP 
-		AND A.THN_PAJAK_SPPT = B.SPPT_TAHUN_PAJAK 
-	WHERE
-		A.PBB_YG_HARUS_DIBAYAR_SPPT <> B.SPPT_PBB_HARUS_DIBAYAR 
-	ORDER BY
-		A.THN_PAJAK_SPPT,
-		A.NOP;`
-    },
-    tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
-  },
-  { 
-    id: 10,
-    title: "Speaker Cross-divisional workshop presentation materials session 1",
-    category: "Training Session",
-    description: "The material for this session focuses on introducing local taxes to interconnected divisions. I am serving as the speaker for this workshop to enhance the divisions understanding, thereby ensuring smoother and more efficient operations.",
-    date: "Jun 2024",
-    client: "Internal Division",
-    previewType: "pdf",
-    previewData: {
-      pdfUrl: "/porto/Workshop1.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
-    },
-    tools: ["Canva"]
-  },
-  { 
-    id: 11,
-    title: "Speaker Cross-divisional workshop presentation materials session 2",
-    category: "Training Session",
-    description: "The material for this session focuses on payment code varians. I am serving as the speaker for this workshop to enhance the divisions understanding, thereby ensuring smoother and more efficient operations.",
-    date: "Jun 2024",
-    client: "Internal Division",
-    previewType: "pdf",
-    previewData: {
-      pdfUrl: "/porto/Workshop2.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
-    },
-    tools: ["Canva"]
-  },
-  {
-    id: 12,
-    title: "Query Data Piutang Pajak PBB",
-    category: "Database SQL",
-    description: "SQL query for outstanding tax receivables analysis, retrieving unpaid tax obligations data grouped by taxpayer, tax type, and due date to support revenue collection strategies and dunning letter generation for regional government finance departments.",
-    date: "Jan 2023",
-    client: "Account Manager & BAPENDA",
-    previewType: "code",
-    previewData: {
-      code: `
-      SELECT
-        A.NOP AS 'NOP',
-        A.WP_NAMA AS 'NAMA WP',
-        A.WP_ALAMAT AS 'ALAMAT WP',
-        A.WP_KELURAHAN AS 'KELURAHAN WP',
-        A.OP_ALAMAT AS 'ALAMAT OP',
-        A.OP_KECAMATAN AS 'KECAMATAN OP',
-        A.OP_KELURAHAN AS 'KELURAHAN OP',
-        A.OP_RT, AS 'RT OP'
-        A.OP_RW AS 'RW OP',
-        A.OP_LUAS_BUMI AS 'LUAS BUMI',
-        A.OP_LUAS_BANGUNAN AS 'LUAS BANGUNAN',
-        A.OP_NJOP_BUMI AS 'NJOP BUMI',
-        A.OP_NJOP_BANGUNAN AS 'NJOP BANGUNAN',
-        A.SPPT_TAHUN_PAJAK AS 'TAHUN PAJAK',
-        A.SPPT_TANGGAL_JATUH_TEMPO AS 'TANGGAL JATUH TEMPO',
-        A.SPPT_PBB_HARUS_DIBAYAR AS 'NILAI KETETAPAN',
-      IF
-        ( A.PAYMENT_FLAG = 1, A.PBB_DENDA, '0' ) AS 'DENDA',
-      IF
-        ( A.PAYMENT_FLAG = 1, A.PBB_TOTAL_BAYAR, '0' ) AS 'TOTAL BAYAR',
-      IF
-        ( A.PAYMENT_FLAG = 1, 'Lunas', 'Belum Bayar' ) AS 'STATUS',
-      IF
-        ( A.PAYMENT_FLAG = 1, A.PAYMENT_PAID, '' ) AS 'TANGGAL BAYAR',
-      IF
-        ( A.PAYMENT_FLAG = 1, B.CDC_B_NAME, '' ) AS 'TEMPAT BAYAR' 
-      FROM
-        PBB_SPPT A
-        LEFT JOIN CDCCORE_BANK B ON A.PAYMENT_BANK_CODE = B.CDC_B_ID 
-      WHERE
-        (
-        ( A.PAYMENT_FLAG <> 1 OR ISNULL( A.PAYMENT_FLAG ) ) 
-        OR ( A.PAYMENT_FLAG = 1 AND A.PAYMENT_PAID > '2018-12-31 23:59:59' ) 
-        ) 
-      ORDER BY
-        A.SPPT_TAHUN_PAJAK,
-        A.NOP;`
-    },
-    tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
-  },
+// 5. KETETAPAN SISMIOP VS V-TAX BERBEDA ( untuk dikirim ke dinas )
+// 	SELECT
+// 		A.NOP,
+// 		A.THN_PAJAK_SPPT,
+// 		A.NM_WP_SPPT,
+// 		A.PBB_YG_HARUS_DIBAYAR_SPPT,
+// 		B.SPPT_PBB_HARUS_DIBAYAR,
+// 		B.PAYMENT_FLAG,
+// 		B.PAYMENT_PAID 
+// 	FROM
+// 		SALDO_PIUTANG_AWAL_2021_SISMIOP A
+// 		JOIN GW_PBB.PBB_SPPT B ON A.NOP = B.NOP 
+// 		AND A.THN_PAJAK_SPPT = B.SPPT_TAHUN_PAJAK 
+// 	WHERE
+// 		A.PBB_YG_HARUS_DIBAYAR_SPPT <> B.SPPT_PBB_HARUS_DIBAYAR 
+// 	ORDER BY
+// 		A.THN_PAJAK_SPPT,
+// 		A.NOP;`
+//     },
+//     tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
+//   },
+//   { 
+//     id: 10,
+//     title: "Speaker Cross-divisional workshop presentation materials session 1",
+//     category: "Training Session",
+//     description: "The material for this session focuses on introducing local taxes to interconnected divisions. I am serving as the speaker for this workshop to enhance the divisions understanding, thereby ensuring smoother and more efficient operations.",
+//     date: "Jun 2024",
+//     client: "Internal Division",
+//     previewType: "pdf",
+//     previewData: {
+//       pdfUrl: "/porto/Workshop1.pdf",
+//       thumbnail: "/porto/payment-gateway-cover.jpg"
+//     },
+//     tools: ["Canva"]
+//   },
+//   { 
+//     id: 11,
+//     title: "Speaker Cross-divisional workshop presentation materials session 2",
+//     category: "Training Session",
+//     description: "The material for this session focuses on payment code varians. I am serving as the speaker for this workshop to enhance the divisions understanding, thereby ensuring smoother and more efficient operations.",
+//     date: "Jun 2024",
+//     client: "Internal Division",
+//     previewType: "pdf",
+//     previewData: {
+//       pdfUrl: "/porto/Workshop2.pdf",
+//       thumbnail: "/porto/payment-gateway-cover.jpg"
+//     },
+//     tools: ["Canva"]
+//   },
+//   {
+//     id: 12,
+//     title: "Query Data Piutang Pajak PBB",
+//     category: "Database SQL",
+//     description: "SQL query for outstanding tax receivables analysis, retrieving unpaid tax obligations data grouped by taxpayer, tax type, and due date to support revenue collection strategies and dunning letter generation for regional government finance departments.",
+//     date: "Jan 2023",
+//     client: "Account Manager & BAPENDA",
+//     previewType: "code",
+//     previewData: {
+//       code: `
+//       SELECT
+//         A.NOP AS 'NOP',
+//         A.WP_NAMA AS 'NAMA WP',
+//         A.WP_ALAMAT AS 'ALAMAT WP',
+//         A.WP_KELURAHAN AS 'KELURAHAN WP',
+//         A.OP_ALAMAT AS 'ALAMAT OP',
+//         A.OP_KECAMATAN AS 'KECAMATAN OP',
+//         A.OP_KELURAHAN AS 'KELURAHAN OP',
+//         A.OP_RT, AS 'RT OP'
+//         A.OP_RW AS 'RW OP',
+//         A.OP_LUAS_BUMI AS 'LUAS BUMI',
+//         A.OP_LUAS_BANGUNAN AS 'LUAS BANGUNAN',
+//         A.OP_NJOP_BUMI AS 'NJOP BUMI',
+//         A.OP_NJOP_BANGUNAN AS 'NJOP BANGUNAN',
+//         A.SPPT_TAHUN_PAJAK AS 'TAHUN PAJAK',
+//         A.SPPT_TANGGAL_JATUH_TEMPO AS 'TANGGAL JATUH TEMPO',
+//         A.SPPT_PBB_HARUS_DIBAYAR AS 'NILAI KETETAPAN',
+//       IF
+//         ( A.PAYMENT_FLAG = 1, A.PBB_DENDA, '0' ) AS 'DENDA',
+//       IF
+//         ( A.PAYMENT_FLAG = 1, A.PBB_TOTAL_BAYAR, '0' ) AS 'TOTAL BAYAR',
+//       IF
+//         ( A.PAYMENT_FLAG = 1, 'Lunas', 'Belum Bayar' ) AS 'STATUS',
+//       IF
+//         ( A.PAYMENT_FLAG = 1, A.PAYMENT_PAID, '' ) AS 'TANGGAL BAYAR',
+//       IF
+//         ( A.PAYMENT_FLAG = 1, B.CDC_B_NAME, '' ) AS 'TEMPAT BAYAR' 
+//       FROM
+//         PBB_SPPT A
+//         LEFT JOIN CDCCORE_BANK B ON A.PAYMENT_BANK_CODE = B.CDC_B_ID 
+//       WHERE
+//         (
+//         ( A.PAYMENT_FLAG <> 1 OR ISNULL( A.PAYMENT_FLAG ) ) 
+//         OR ( A.PAYMENT_FLAG = 1 AND A.PAYMENT_PAID > '2018-12-31 23:59:59' ) 
+//         ) 
+//       ORDER BY
+//         A.SPPT_TAHUN_PAJAK,
+//         A.NOP;`
+//     },
+//     tools: ["Navicat", "MySQL", "WinSCP SSH", "MS Excel"]
+//   },
 
 //   {
 //     id: 2,

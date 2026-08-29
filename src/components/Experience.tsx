@@ -5,31 +5,35 @@ import { Briefcase, Calendar, MapPin, CheckCircle2, Database, ShieldCheck, Trend
 
 const experiences = [
   {
-    title: "Leader Technical Support Payment Gateway",
+    title: "Leader Application Support Payment Gateway",
     company: "PT Mutiara Bintang Abadi (Valuestream International Group)",
     location: "Bandung, Indonesia",
-    period: "July 2022 - Present",
+    period: "July 2022 - July 2026",
     description: "Leading technical operations for payment gateway integration and regional tax payment systems.",
     products: ["Service Payment", "Query Service", "Online Reconciliation", "Payment Counter", "VA/QRIS Portal", "Monitoring Dashboard", "Web P.O.S", "Mobile P.O.S", "Map G.I.S System", "Esign App", "Kios K Pajak"],
     achievements: [
       { 
-        text: "Manage and verify payment transaction databases to ensure the success of local tax payments.", 
+        text: "Manage and verify payment transaction databases using Navicat for MySQL/PostgreSQL to ensure the success of local tax payments.", 
         icon: <Database size={16} className="text-blue-500" /> 
       },
       { 
-        text: "Prepare payment specification documents and conduct system analysis and functional requirement architecture for online payment integration.", 
+        text: "Prepare payment specification documents using MS Word and Canva, and conduct system analysis with Draw.io diagrams for functional requirement architecture in online payment integration.", 
         icon: <ShieldCheck size={16} className="text-purple-500" /> 
       },
       { 
-        text: "Execute SIT, UAT, TO, and payment integration (H2H, QRIS, VA) with partner banks and external partners (Tokopedia, Indomaret, Alfamart, POS Indonesia).", 
+        text: "Execute SIT, UAT, TO using Postman for API testing, and payment integration (H2H, QRIS, VA) with partner banks and external partners (Tokopedia, Indomaret, Alfamart, POS Indonesia).", 
         icon: <Users size={16} className="text-blue-500" /> 
       },
       { 
         text: "Handle coordination of payment issues and perform local tax data reconciliation to ensure the nominal fund transfer from banks to regional treasuries is always consistent.", 
         icon: <TrendingUp size={16} className="text-emerald-500" /> 
+      },
+      { 
+        text: "Provide remote technical support using TeamViewer/AnyDesk for troubleshooting and coordinating with regional government partners, while managing tasks through Trello and Redmine.", 
+        icon: <CheckCircle2 size={16} className="text-purple-500" /> 
       }
     ],
-    skills: ["Payment Gateway", "H2H Integration", "UAT/SIT", "Data Reconciliation", "Leadership"]
+    skills: ["TESTER (SIT/UAT)", "SYSTEM ANALYST", "API INTEGRATION", "DATABASE MANAGEMENT", "TECHNICAL DOCUMENTATION", "REMOTE SUPPORT", "TASK MANAGEMENT", "TROUBLESHOOTING", "PAYMENT GATEWAY", "SLA COMPLIANCE"]
   },
   {
     title: "Technical Support Application",
@@ -56,7 +60,7 @@ const experiences = [
         icon: <TrendingUp size={16} className="text-emerald-500" /> 
       }
     ],
-    skills: ["SQL Query", "Root Cause Analysis", "System Training", "Financial Reporting"]
+    skills: ["SYSTEM ANALYST", "TRAINER", "SQL DEVELOPER", "ROOT CAUSE ANALYSIS", "TECHNICAL SUPPORT", "DOCUMENTATION", "FINANCIAL REPORTING", "TROUBLESHOOTING"]
   },
   {
     title: "Website Developer",
@@ -71,7 +75,7 @@ const experiences = [
         icon: <Code size={16} className="text-blue-500" /> 
       }
     ],
-    skills: ["PHP", "HTML", "Web Development", "System Testing", "Documentation"]
+    skills: ["WEB DEVELOPER", "TESTER (QA)", "PHP DEVELOPER", "DATABASE DESIGN", "SDLC", "TECHNICAL DOCUMENTATION"]
   }
 ];
 
@@ -103,7 +107,7 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  {/* PRODUCT SUPPORTED SECTION (Isi Area Kosong) */}
+                  {/* PRODUCT SUPPORTED SECTION */}
                   <div className="pt-4 space-y-3">
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                       <Package size={12} className="text-blue-500" /> Products Managed
@@ -116,6 +120,22 @@ export default function Experience() {
                       ))}
                     </div>
                   </div>
+
+                  {/* KEY SKILLS / ROLE KEYWORDS SECTION */}
+                  {exp.skills && (
+                    <div className="pt-4 space-y-3">
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                        🎯 Key Skills
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {exp.skills.map((skill, sIndex) => (
+                          <span key={sIndex} className="px-2 py-1 bg-emerald-50/50 text-emerald-700 rounded-md text-[10px] font-semibold border border-emerald-100/50">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* RIGHT COLUMN */}

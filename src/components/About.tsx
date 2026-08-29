@@ -90,7 +90,7 @@ export default function About() {
                 </div>
                 <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100 hover:border-amber-200 transition-colors group">
                   <CheckCircle2 className="text-amber-500 mb-2 group-hover:scale-110 transition-transform" size={20} />
-                  <p className="text-2xl font-bold text-slate-800">14</p>
+                  <p className="text-2xl font-bold text-slate-800">10+</p>
                   <p className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Products</p>
                   <p className="text-[8px] text-slate-400 mt-1 leading-tight">Managed Simultaneously</p>
                 </div>
