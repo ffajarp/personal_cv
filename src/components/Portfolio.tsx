@@ -39,6 +39,19 @@ const portfolioItems: PortfolioItem[] = [
     },
     tools: ["MS Word, Canva"]
   },
+  {
+      id: 2,
+      title: "Tools Reconciliation",
+      category: "System Analyst",
+      description: "A lightweight file comparison tool that automatically detects mismatched and missing records between two datasets, built to simplify manual reconciliation work.",
+      date: "May 2026",
+      client: "Internal Tools",
+      previewType: "images",
+      previewData: {
+        images: ["/porto/tools.png","/porto/tools2.png","/porto/tools3.png","/porto/tools4.png"]
+      },
+      tools: ["AI", "Excel",]
+    },
 //   { 
 //     id: 2,
 //     title: "Sharing Session Reconciliation Online For BAPENDA Role ",
@@ -522,6 +535,7 @@ export default function Portfolio() {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [isCopied, setIsCopied] = useState(false)
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null)
   const itemsPerPage = 6
 
   const filteredItems = activeCategory === "All" 
@@ -863,12 +877,27 @@ export default function Portfolio() {
                   {selectedItem.previewType === "images" && selectedItem.previewData.images && (
                     <div className="grid grid-cols-2 gap-4 p-4">
                       {selectedItem.previewData.images.map((img, idx) => (
-                        <img
+                        <div
                           key={idx}
-                          src={img}
-                          alt={`Preview ${idx + 1}`}
-                          className="w-full h-64 object-cover rounded-xl"
-                        />
+                          className="relative group cursor-pointer overflow-hidden rounded-xl"
+                          onClick={() => setZoomedImage(img)}
+                        >
+                          <img
+                            src={img}
+                            alt={`Preview ${idx + 1}`}
+                            className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                            <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 p-2 rounded-full">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                                <line x1="11" x2="11" y1="8" y2="14"></line>
+                                <line x1="8" x2="14" y1="11" y2="11"></line>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   )}
@@ -905,12 +934,27 @@ export default function Portfolio() {
                   {selectedItem.previewType === "gallery" && selectedItem.previewData.images && (
                     <div className="grid grid-cols-3 gap-3 p-4">
                       {selectedItem.previewData.images.map((img, idx) => (
-                        <img
+                        <div
                           key={idx}
-                          src={img}
-                          alt={`Gallery ${idx + 1}`}
-                          className="w-full h-48 object-cover rounded-xl"
-                        />
+                          className="relative group cursor-pointer overflow-hidden rounded-xl"
+                          onClick={() => setZoomedImage(img)}
+                        >
+                          <img
+                            src={img}
+                            alt={`Gallery ${idx + 1}`}
+                            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                            <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 p-2 rounded-full">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                                <line x1="11" x2="11" y1="8" y2="14"></line>
+                                <line x1="8" x2="14" y1="11" y2="11"></line>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
                       ))}
                     </div>
                   )}
@@ -932,6 +976,46 @@ export default function Portfolio() {
                     </div>
                   </div>
                 )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Image Zoom Modal */}
+      <AnimatePresence>
+        {zoomedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+            onClick={() => setZoomedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-5xl w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setZoomedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6 6 18"></path>
+                  <path d="m6 6 12 12"></path>
+                </svg>
+              </button>
+
+              <div className="relative w-full h-full overflow-hidden rounded-lg">
+                <img
+                  src={zoomedImage}
+                  alt="Zoomed Portfolio Image"
+                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-150 cursor-move"
+                />
               </div>
             </motion.div>
           </motion.div>
