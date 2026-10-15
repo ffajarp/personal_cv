@@ -8,7 +8,7 @@ import { FileText, BarChart3, Workflow, Database, Users, ExternalLink, Play, Che
 type PortfolioItem = {
   id: number
   title: string
-  category: "Documentation" | "Data Analyst" | "System Analyst" | "Database SQL" | "Training Session"
+  category: "Documentation" | "Data Analyst" | "System Analyst" | "Database SQL" | "Training Session" | "Website Development"
   description: string
   date: string
   client?: string
@@ -35,7 +35,7 @@ const portfolioItems: PortfolioItem[] = [
     previewType: "pdf",
     previewData: {
       pdfUrl: "/porto/brd.pdf",
-      thumbnail: "/porto/payment-gateway-cover.jpg"
+      thumbnail: "/web/home_user.png"
     },
     tools: ["MS Word, Canva"]
   },
@@ -50,8 +50,57 @@ const portfolioItems: PortfolioItem[] = [
       previewData: {
         images: ["/porto/tools.png","/porto/tools2.png","/porto/tools3.png","/porto/tools4.png"]
       },
-      tools: ["AI", "Excel",]
+      tools: ["AI", "Excel"]
     },
+  {
+    id: 3,
+    title: "Website Management Garment",
+    category: "Website Development",
+    description: "Full-stack web application untuk bisnis garment printing dengan fitur e-commerce, manajemen produksi, dan workflow automation",
+    date: "April 2026",
+    client: "Internal Project",
+    previewType: "images",
+    previewData: {
+      images: [
+        "/web/home_user.png",
+        "/web/login_user.png",
+        "/web/register_user.png",
+        "/web/shop_user.png",
+        "/web/cart_user.png",
+        "/web/checout_user.png",
+        "/web/pesanan_user.png",
+        "/web/service_user.png",
+        "/web/dash_admin.png",
+        "/web/canban_admin.png",
+        "/web/order_admin.png",
+        "/web/usermanage_admin_admin.png",
+        "/web/diskon_admin.png",
+        "/web/manual_order.png",
+        "/web/manual_payment.png",
+        "/web/homepage_setting_admin.png",
+        "/web/workflow_production_admin.png",
+        "/web/eksternal vendor_admin.png",
+        "/web/dtf kalkilator_admin.png",
+        "/web/kalkulator bahan_admin.png"
+      ]
+    },
+    tools: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL", "Prisma ORM"]
+  },
+  {
+    id: 4,
+    title: "Web Service API Pajak Kendaraan Bermotor",
+    category: "Documentation",
+    description: "Dokumentasi spesifikasi web service API untuk integrasi sistem pajak kendaraan bermotor dengan pihak ketiga",
+    date: "Agustus 2024",
+    client: "DEMO CLIENT",
+    previewType: "pdf",
+    previewData: {
+      pdfUrl: "/porto/WS PKB.pdf"
+    },
+    tools: ["MS Word", "Postman", "API Design"]
+  },
+  
+  
 //   { 
 //     id: 2,
 //     title: "Sharing Session Reconciliation Online For BAPENDA Role ",
@@ -527,7 +576,8 @@ const categories = [
   { name: "Data Analyst", icon: <BarChart3 size={16} />, count: portfolioItems.filter(i => i.category === "Data Analyst").length },
   { name: "System Analyst", icon: <Workflow size={16} />, count: portfolioItems.filter(i => i.category === "System Analyst").length },
   { name: "Database SQL", icon: <Database size={16} />, count: portfolioItems.filter(i => i.category === "Database SQL").length },
-  { name: "Training Session", icon: <Users size={16} />, count: portfolioItems.filter(i => i.category === "Training Session").length }
+  { name: "Training Session", icon: <Users size={16} />, count: portfolioItems.filter(i => i.category === "Training Session").length },
+  { name: "Website Development", icon: <Users size={16} />, count: portfolioItems.filter(i => i.category === "Website Development").length }
 ]
 
 export default function Portfolio() {
@@ -536,6 +586,7 @@ export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState(1)
   const [isCopied, setIsCopied] = useState(false)
   const [zoomedImage, setZoomedImage] = useState<string | null>(null)
+  const [webAppImageView, setWebAppImageView] = useState<"all" | "user" | "admin">("all")
   const itemsPerPage = 6
 
   const filteredItems = activeCategory === "All" 
@@ -637,49 +688,78 @@ export default function Portfolio() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3 }}
-                  onClick={() => setSelectedItem(item)}
+                  onClick={() => {
+                    setSelectedItem(item)
+                    setWebAppImageView("all")
+                  }}
                   className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer border border-slate-100"
                 >
-                  {/* Thumbnail */}
-                  <div className="relative h-48 bg-gradient-to-br from-blue-50 to-indigo-50 overflow-hidden">
-                    {item.previewType === "youtube" && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-black/20"></div>
-                        <Play className="text-white z-10 group-hover:scale-125 transition-transform" size={48} />
+                  {/* Thumbnail - Hybrid Design */}
+                  <div className="relative h-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+                    {/* Gradient Background with Icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      {/* Category Icon */}
+                      {item.category === "Documentation" && (
+                        <FileText className="text-blue-300/40" size={80} strokeWidth={1.5} />
+                      )}
+                      {item.category === "System Analyst" && (
+                        <Workflow className="text-indigo-300/40" size={80} strokeWidth={1.5} />
+                      )}
+                      {item.category === "Database SQL" && (
+                        <Database className="text-purple-300/40" size={80} strokeWidth={1.5} />
+                      )}
+                      {item.category === "Data Analyst" && (
+                        <BarChart3 className="text-cyan-300/40" size={80} strokeWidth={1.5} />
+                      )}
+                      {item.category === "Training Session" && (
+                        <Users className="text-green-300/40" size={80} strokeWidth={1.5} />
+                      )}
+                      {item.category === "Website Development" && (
+                        <Workflow className="text-pink-300/40" size={80} strokeWidth={1.5} />
+                      )}
+                    </div>
+
+                    {/* Preview Image Overlay (Bottom Right Corner) */}
+                    {(item.previewType === "images" || item.previewType === "gallery") && item.previewData.images && (
+                      <div className="absolute bottom-3 right-3 w-24 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-white/80 group-hover:scale-110 transition-transform duration-300">
                         <img 
-                          src={item.previewData.thumbnail} 
+                          src={item.previewData.images[0]} 
                           alt={item.title}
-                          className="absolute inset-0 w-full h-full object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     )}
-                    {item.previewType === "images" && item.previewData.images && (
-                      <img 
-                        src={item.previewData.images[0]} 
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                    
+                    {/* YouTube Preview Overlay */}
+                    {item.previewType === "youtube" && item.previewData.thumbnail && (
+                      <div className="absolute bottom-3 right-3 w-24 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-white/80 group-hover:scale-110 transition-transform duration-300">
+                        <img 
+                          src={item.previewData.thumbnail} 
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                          <Play className="text-white" size={20} />
+                        </div>
+                      </div>
                     )}
+
+                    {/* PDF Preview Icon Overlay */}
                     {item.previewType === "pdf" && (
-                      <div className="flex items-center justify-center h-full">
-                        <FileText className="text-blue-400" size={64} />
+                      <div className="absolute bottom-3 right-3 w-16 h-16 rounded-xl bg-white/90 backdrop-blur-sm shadow-lg border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <FileText className="text-blue-600" size={28} />
                       </div>
                     )}
+
+                    {/* Code Preview Icon Overlay */}
                     {item.previewType === "code" && (
-                      <div className="flex items-center justify-center h-full">
-                        <Database className="text-indigo-400" size={64} />
+                      <div className="absolute bottom-3 right-3 w-16 h-16 rounded-xl bg-white/90 backdrop-blur-sm shadow-lg border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Database className="text-purple-600" size={28} />
                       </div>
-                    )}
-                    {item.previewType === "gallery" && item.previewData.images && (
-                      <img 
-                        src={item.previewData.images[0]} 
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
                     )}
                     
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-lg text-[10px] font-bold text-slate-700">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-lg text-[10px] font-bold text-slate-700 shadow-sm">
                       {item.category}
                     </div>
                   </div>
@@ -875,31 +955,89 @@ export default function Portfolio() {
 
                   {/* Images Preview */}
                   {selectedItem.previewType === "images" && selectedItem.previewData.images && (
-                    <div className="grid grid-cols-2 gap-4 p-4">
-                      {selectedItem.previewData.images.map((img, idx) => (
-                        <div
-                          key={idx}
-                          className="relative group cursor-pointer overflow-hidden rounded-xl"
-                          onClick={() => setZoomedImage(img)}
-                        >
-                          <img
-                            src={img}
-                            alt={`Preview ${idx + 1}`}
-                            className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
-                            <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 p-2 rounded-full">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                                <line x1="11" x2="11" y1="8" y2="14"></line>
-                                <line x1="8" x2="14" y1="11" y2="11"></line>
-                              </svg>
-                            </div>
-                          </div>
+                    <>
+                      {/* Tabs for Website Development category */}
+                      {selectedItem.category === "Website Development" && (
+                        <div className="flex justify-center gap-2 p-4 pb-2 border-b border-slate-200">
+                          <button
+                            onClick={() => setWebAppImageView("all")}
+                            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                              webAppImageView === "all"
+                                ? "bg-blue-600 text-white shadow-md"
+                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                            }`}
+                          >
+                            All Features ({selectedItem.previewData.images.length})
+                          </button>
+                          <button
+                            onClick={() => setWebAppImageView("user")}
+                            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                              webAppImageView === "user"
+                                ? "bg-blue-600 text-white shadow-md"
+                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                            }`}
+                          >
+                            User Interface ({selectedItem.previewData.images.filter(img => img.includes("_user")).length})
+                          </button>
+                          <button
+                            onClick={() => setWebAppImageView("admin")}
+                            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                              webAppImageView === "admin"
+                                ? "bg-orange-600 text-white shadow-md"
+                                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                            }`}
+                          >
+                            Admin Dashboard ({selectedItem.previewData.images.filter(img => img.includes("_admin")).length})
+                          </button>
                         </div>
-                      ))}
-                    </div>
+                      )}
+                      
+                      <div className="grid grid-cols-2 gap-4 p-4">
+                        {selectedItem.previewData.images
+                          .filter(img => {
+                            if (selectedItem.category !== "Website Development") return true
+                            if (webAppImageView === "all") return true
+                            if (webAppImageView === "user") return img.includes("_user")
+                            if (webAppImageView === "admin") return img.includes("_admin")
+                            return true
+                          })
+                          .map((img, idx) => (
+                            <div
+                              key={idx}
+                              className="relative group cursor-pointer overflow-hidden rounded-xl"
+                              onClick={() => setZoomedImage(img)}
+                            >
+                              <img
+                                src={img}
+                                alt={`Preview ${idx + 1}`}
+                                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                              />
+                              
+                              {/* Badge for User/Admin */}
+                              {selectedItem.category === "Website Development" && (
+                                <div className={`absolute top-2 right-2 px-2 py-1 rounded-md text-[9px] font-bold ${
+                                  img.includes("_user") 
+                                    ? "bg-blue-500/90 text-white" 
+                                    : "bg-orange-500/90 text-white"
+                                }`}>
+                                  {img.includes("_user") ? "USER" : "ADMIN"}
+                                </div>
+                              )}
+                              
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                                <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 p-2 rounded-full">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-700">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.3-4.3"></path>
+                                    <line x1="11" x2="11" y1="8" y2="14"></line>
+                                    <line x1="8" x2="14" y1="11" y2="11"></line>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </>
                   )}
 
                   {/* Code Preview */}
@@ -973,6 +1111,95 @@ export default function Portfolio() {
                           {tool}
                         </span>
                       ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Features - Only for Website Development */}
+                {selectedItem.category === "Website Development" && (
+                  <div className="space-y-4 pt-4 border-t border-slate-200">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Features</p>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* User Interface Features */}
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                          <h4 className="text-sm font-bold text-slate-700">User Interface</h4>
+                        </div>
+                        <ul className="space-y-2 text-sm text-slate-600">
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-500 mt-1">•</span>
+                            <span>Homepage dengan katalog produk</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-500 mt-1">•</span>
+                            <span>Login & Register system</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-500 mt-1">•</span>
+                            <span>Shop catalog dengan filter & pencarian</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-500 mt-1">•</span>
+                            <span>Shopping cart & checkout</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-500 mt-1">•</span>
+                            <span>Order history & tracking</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-blue-500 mt-1">•</span>
+                            <span>Services information page</span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      {/* Admin Dashboard Features */}
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+                          <h4 className="text-sm font-bold text-slate-700">Admin Dashboard</h4>
+                        </div>
+                        <ul className="space-y-2 text-sm text-slate-600">
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Dashboard dengan statistik bisnis</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Kanban board untuk manajemen produksi</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Order & payment management</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>User & role management</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Discount & promo management</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Homepage settings & content management</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Production workflow monitoring</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>Vendor management system</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-orange-500 mt-1">•</span>
+                            <span>DTF & Material calculator tools</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 )}
